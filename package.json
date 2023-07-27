@@ -4,11 +4,19 @@
   "description": "API desenvolvida no Desafio do Stage 8 da Rocketseat",
   "main": "index.js",
   "scripts": {
-    "start": "node ./src/server.js"
+    "start": "node ./src/server.js",
+    "dev": "nodemon ./src/server.js"
   },
   "author": "Thalyta Rangel",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "express-async-errors": "^3.1.1",
+    "knex": "^2.5.1",
+    "sqlite": "^5.0.1",
+    "sqlite3": "^5.1.6"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }

@@ -28,7 +28,7 @@ class UsersController {
   }
 
   async update(request, response) {
-    const { name, email, password, oldPassword } = request.body;
+    const { name, email, password, old_password } = request.body;
     const user_id = request.user.id;
 
     const user = await knex("users").where({id: user_id}).first();
@@ -43,12 +43,12 @@ class UsersController {
       throw new AppError("Este e-mail já está em uso.");
     }
 
-    if(password && !oldPassword) {
+    if(password && !old_password) {
       throw new AppError("Você precisa informar a senha antiga");
     }
 
-    if(password && oldPassword) {
-      const checkOldPassword = await compare(oldPassword, user.password)
+    if(password && old_password) {
+      const checkOldPassword = await compare(old_password, user.password)
 
       if(!checkOldPassword) {
         throw new AppError("A senha antiga não confere")
